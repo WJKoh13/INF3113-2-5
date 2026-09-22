@@ -9,8 +9,8 @@ under test" for performance and accuracy measurement.
 **Client constraint:** no public model API. All inference runs on CPU-only
 hardware the client controls, so the model backend is Ollama running locally.
 
-Due **Fri 9 Oct 2026, 2359**. See [SCHEDULE.md](SCHEDULE.md) for per-person
-deadlines and [AI_USAGE.md](AI_USAGE.md) for what was AI-assisted.
+Due **Fri 9 Oct 2026, 2359**. See [PROJECT.md](PROJECT.md) for the schedule,
+the prediction record, and the AI usage log.
 
 ## Team
 
@@ -55,8 +55,7 @@ sample. See [Golden test set](#golden-test-set) below for why.
 │   └── labelling_sheet_B.csv   # same 200 tickets, labeller B
 ├── scripts/
 │   └── make_golden_sample.py   # regenerates the above, fixed seed
-├── PREDICTIONS.md              # Step 4 prediction record
-├── AI_USAGE.md                 # what was AI-assisted, what was not
+├── PROJECT.md                   # schedule, prediction record, AI usage log
 └── README.md
 ```
 
