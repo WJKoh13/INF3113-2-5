@@ -47,6 +47,31 @@ Commits `d545d0c`, `4893d01`, `90019b5`.
 Decisions made by the team, not the tool: who owns which step, the schedule,
 and the freeze date.
 
+### 22 Sep 2026 — Dataset slice and golden set sampling
+
+Commit `62aa6ce`.
+
+- Confirmed team number (5) resolves to rows 5000–5999 of the 50,000-row
+  course extract.
+- Wrote `scripts/make_golden_sample.py`: extracts the team's 1,000 rows for
+  JMeter, and samples 200 of them (fixed seed, reproducible) into two
+  identical blind labelling sheets with `source_label` stripped.
+- Checked the resulting sample for category balance and confirmed both
+  sheets contain the same 200 tickets.
+
+Decisions made by the team, not the tool: team number (confirmed by the
+team), sample size (200, within the brief's 150–200 range), and to withhold
+the noisy source label from labellers.
+
+### 22 Sep 2026 — Role assignment revisions
+
+No code changes. Assisted with drafting and revising the team task-split
+message as roles were reassigned (golden set, candidate models, test rig,
+Week 5 ownership), and kept `README.md`'s responsibility table consistent
+with each revision.
+
+Decisions made by the team, not the tool: who does what.
+
 ---
 
 ## Not done with AI

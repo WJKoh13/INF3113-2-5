@@ -17,16 +17,20 @@ all test traffic must come from these rows.
 
 | Name | Student ID | Primary responsibility | Then (Step 5) |
 | --- | --- | --- | --- |
-| Koh Wen Jun | 2401646 | Backend service, Docker (Step 2) | Instrumentation, log collection |
-| Lau Peng Jie | 2402164 | Workload model, requirements (Steps 3, 4) | Load test design & analysis |
-| Muhammad Haidar Bin Abdul Hamid | 2401912 | Candidate models, prediction record (Step 4) | JMeter open-loop runs, stress test |
-| Raffael Davin Harjanto | 2402294 | Golden set — independent labeller A (Step 1) | Accuracy tests, confusion matrices |
-| Teo Min Megan Lynette | 2401824 | Golden set — independent labeller B (Step 1) | Accuracy tests, confusion matrices |
+| Koh Wen Jun | 2401646 | Golden set — labeller (`labelling_sheet_A.csv`) (Step 1) | Backend service maintenance, instrumentation |
+| Lau Peng Jie | 2402164 | Workload model, requirements (Steps 3, 4) | JMeter open-loop runs |
+| Muhammad Haidar Bin Abdul Hamid | 2401912 | Test rig — machine setup (Step 5 prep) | JMeter open-loop runs, stress test |
+| Raffael Davin Harjanto | 2402294 | Golden set — labeller (`labelling_sheet_B.csv`) (Step 1) | Accuracy tests, confusion matrices |
+| Teo Min Megan Lynette | 2401824 | Candidate models, prediction record draft (Step 4) | Accuracy tests, confusion matrices |
 
 Step 1 (golden set) and Steps 3–4 (workload model, requirements, predictions)
 run in parallel from Week 1. Step 5 cannot begin until Steps 1–4 are complete
-and committed, at which point the labellers roll onto accuracy testing.
-Step 6 (the recommendation) and the slide deck are the whole team.
+and committed. Step 6 (the recommendation) and the slide deck are the whole
+team.
+
+Note: `labelling_sheet_A.csv` and `labelling_sheet_B.csv` contain the
+identical 200 tickets — the filename maps to a labeller, not to a different
+sample. See [Golden test set](#golden-test-set) below for why.
 
 ## Repository structure
 
