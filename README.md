@@ -11,9 +11,9 @@ hardware the client controls, so the model backend is Ollama running locally.
 
 ## Team
 
-Team number: **TBD** — determines the dataset slice (team `n` uses rows
-`n × 1000` to `n × 1000 + 999`). All labelling and test traffic must come from
-these rows.
+Team number: **5** — so our dataset slice is rows **5000–5999** of the course
+extract (team `n` uses rows `n × 1000` to `n × 1000 + 999`). All labelling and
+all test traffic must come from these rows.
 
 | Name | Student ID | Primary responsibility | Then (Step 5) |
 | --- | --- | --- | --- |
@@ -41,11 +41,45 @@ Step 6 (the recommendation) and the slide deck are the whole team.
 │       ├── db.py               # SQLAlchemy models, Postgres connection
 │       ├── ollama_client.py    # synchronous classification call
 │       └── categories.py       # the seven fixed categories
+├── data/
+│   └── team5_rows.csv          # our 1000 rows — JMeter draws from this
+├── golden-set/
+│   ├── labelling_sheet_A.csv   # 200 tickets, blind, labeller A
+│   └── labelling_sheet_B.csv   # same 200 tickets, labeller B
+├── scripts/
+│   └── make_golden_sample.py   # regenerates the above, fixed seed
+├── PREDICTIONS.md              # Step 4 prediction record
+├── AI_USAGE.md                 # what was AI-assisted, what was not
 └── README.md
 ```
 
-Not tracked in git (see `.gitignore`): the assignment brief, the raw dataset
-CSV (45 MB), and `logs/`.
+Not tracked in git (see `.gitignore`): the assignment brief, the raw 50,000-row
+dataset CSV (45 MB), and `logs/`.
+
+## Golden test set
+
+Our 200 tickets are sampled from rows 5000–5999 with a fixed seed
+(`scripts/make_golden_sample.py`, seed `20260922`), so the sample is
+reproducible and demonstrably not cherry-picked.
+
+The labelling sheets **omit `source_label` deliberately.** Those labels were
+selected by consumers at submission time and are noisy; seeing them while
+labelling would anchor our labels to them. For the same reason, no labelling
+happens after seeing model output.
+
+Two team members label the same 200 tickets independently, without conferring,
+following the written protocol. Both sheets are kept — we submit them along
+with the agreement statistic and the record of how each disagreement was
+resolved.
+
+To regenerate (needs `ict3113_tickets.csv` in the repo root):
+
+```bash
+python3 scripts/make_golden_sample.py
+```
+
+Do not rerun with a different seed or sample size after the golden set is
+frozen.
 
 ## Categories
 
