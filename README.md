@@ -9,6 +9,9 @@ under test" for performance and accuracy measurement.
 **Client constraint:** no public model API. All inference runs on CPU-only
 hardware the client controls, so the model backend is Ollama running locally.
 
+Due **Fri 9 Oct 2026, 2359**. See [SCHEDULE.md](SCHEDULE.md) for per-person
+deadlines and [AI_USAGE.md](AI_USAGE.md) for what was AI-assisted.
+
 ## Team
 
 Team number: **5** — so our dataset slice is rows **5000–5999** of the course
