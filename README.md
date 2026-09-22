@@ -15,14 +15,18 @@ Team number: **TBD** — determines the dataset slice (team `n` uses rows
 `n × 1000` to `n × 1000 + 999`). All labelling and test traffic must come from
 these rows.
 
-| Name | Student ID | Primary responsibility |
-| --- | --- | --- |
-| TBD | TBD | Backend service (Step 2) |
-| TBD | TBD | Workload model & requirements (Steps 3, 4) |
-| TBD | TBD | Model selection & prediction record (Step 4) |
-| TBD | TBD | Golden set — labeller A (Step 1) |
-| TBD | TBD | Golden set — labeller B (Step 1) |
-| TBD | TBD | Load & stress testing, JMeter (Step 5) |
+| Name | Student ID | Primary responsibility | Then (Step 5) |
+| --- | --- | --- | --- |
+| Koh Wen Jun | 2401646 | Backend service, Docker (Step 2) | Instrumentation, log collection |
+| Lau Peng Jie | 2402164 | Workload model, requirements (Steps 3, 4) | Load test design & analysis |
+| Muhammad Haidar Bin Abdul Hamid | 2401912 | Candidate models, prediction record (Step 4) | JMeter open-loop runs, stress test |
+| Raffael Davin Harjanto | 2402294 | Golden set — independent labeller A (Step 1) | Accuracy tests, confusion matrices |
+| Teo Min Megan Lynette | 2401824 | Golden set — independent labeller B (Step 1) | Accuracy tests, confusion matrices |
+
+Step 1 (golden set) and Steps 3–4 (workload model, requirements, predictions)
+run in parallel from Week 1. Step 5 cannot begin until Steps 1–4 are complete
+and committed, at which point the labellers roll onto accuracy testing.
+Step 6 (the recommendation) and the slide deck are the whole team.
 
 ## Repository structure
 
