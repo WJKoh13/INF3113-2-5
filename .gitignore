@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+logs/
+*.log
+.env
+.DS_Store
+
+# Assignment brief and raw dataset kept local, not in repo history
+ICT3113_Assignment_1.docx
+ict3113_tickets.csv

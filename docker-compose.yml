@@ -1,0 +1,46 @@
+services:
+  triage-service:
+    build: ./triage-service
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://triage:triage@db:5432/triage
+      OLLAMA_BASE_URL: http://ollama:11434
+      # Pin this to your chosen candidate's exact tag once you've picked it
+      # (Step 4: report the tag *and* digest in your submission).
+      OLLAMA_MODEL: llama3.2:1b
+    depends_on:
+      db:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+    volumes:
+      - ./logs:/app/logs
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: triage
+      POSTGRES_PASSWORD: triage
+      POSTGRES_DB: triage
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U triage"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # CPU-only model backend, per the client's constraint (no GPU, no public
+  # model API). Pull your candidate models in with:
+  #   docker compose exec ollama ollama pull <model:tag>
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+
+volumes:
+  db-data:
+  ollama-data:
