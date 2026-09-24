@@ -77,8 +77,8 @@ comparable and must not be mixed into the results.
 
 | Role | Owner | Hardware | OS |
 | --- | --- | --- | --- |
-| **System under test** (service + Ollama + Postgres) | TBD | TBD | TBD |
-| **Load generator** (JMeter) | TBD | TBD | TBD |
+| **System under test** (service + Ollama + Postgres) | Haidar (desktop) | AMD Ryzen 5 7500F (6C/12T), 32 GB RAM | Windows 11 Pro |
+| **Load generator** (JMeter) | Haidar (laptop) | AMD Ryzen 5 7535HS (6C/12T), 32 GB RAM | Windows 11 Pro |
 
 The two must be different machines — a co-hosted load generator steals CPU from
 the service and produces latency numbers that will not be accepted as evidence.
